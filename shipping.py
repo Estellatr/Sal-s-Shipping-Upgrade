@@ -1,12 +1,4 @@
 
-from this import s
-
-customer_choice = input("To calculate the exact cost of your chosen shipping method for your item, enter 'Calculate'. To see the price of all different shipping methods for your item, enter 'All'.\n")
-
-while customer_choice != 'Calculate' and customer_choice != 'All':
-  print("Please enter a valid choice.")
-  customer_choice = (input("To calculate the exact cost of your chosen shipping method for your item, enter 'Calculate'. To see the price of all different shipping methods for your item, enter 'All'.\n"))
-
 def sequential():
   shipping_dict = {
       "Ground Shipping": ["ground_shipping"],
@@ -88,30 +80,16 @@ def all_options():
   elif weight > 10:
     print("Ground Shipping: Ground Price per Pound = $14.25, no flat charge. Total cost: $" + str(weight * 14.25))    
 
-if customer_choice == "Calculate":
+
+
+customer_choice = input("To calculate the exact cost of your chosen shipping method for your item, enter 'calculate'. To see the price of all different shipping methods for your item, enter 'all'.\n").lower()
+
+while customer_choice != 'calculate' and customer_choice != 'all':
+  print("Please enter a valid choice.")
+  customer_choice = (input("To calculate the exact cost of your chosen shipping method for your item, enter 'Calculate'. To see the price of all different shipping methods for your item, enter 'All'.\n")).lower()
+
+if customer_choice.lower() == "calculate":
   sequential()
-elif customer_choice == "All":
+elif customer_choice.lower() == "all":
   all_options()
-
-
-if weight <= 2 and choice_1:
-  print("Ground Price per Pound = $1.50 + Flat charge of $20. Total cost: " + str((weight * 1.5) + 20))
-elif weight > 2 and weight <= 6 and choice_1:
-  print("Ground Price per Pound = $3.00 + Flat charge of $20. Total cost: " + str((weight * 3.0) + 20))
-elif weight > 6 and weight <= 10 and choice_1:
-  print("Ground Price per Pound = $4.00 + Flat charge of $20. Total cost: " + str((weight * 4.0) + 20))
-elif weight > 10 and choice_1:
-  print("Ground Price per Pound = $4.75 + Flat charge of $20. Total cost: " + str((weight * 4.75) + 20))
-  #choice_2
-elif choice_2:
-    print("Ground Shipping Premium has a flat charge of $125.00")
-#choice_3
-elif weight <= 2 and choice_3:
-  print("Ground Price per Pound = $4.50, no flat charge. Total cost: " + str(weight * 4.5))
-elif weight > 2 and weight <= 6 and choice_3:
-  print("Ground Price per Pound = $9.00, no flat charge. Total cost: " + str(weight * 9.0))
-elif weight > 6 and weight <= 10 and choice_3:
-  print("Ground Price per Pound = $12.00, no flat charge. Total cost: " + str(weight * 12.0))
-elif weight > 10 and choice_3:
-  print("Ground Price per Pound = $14.25, no flat charge. Total cost: " + str(weight * 14.25))
 
