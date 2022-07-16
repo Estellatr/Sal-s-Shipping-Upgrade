@@ -1,11 +1,6 @@
 
 from this import s
 
-
-weight = int(input("Enter the weight of your product:"))
-choice = int(input("Choose your shipping option - 1 for Ground, 2 for Ground Premium, 3 for Drone:"))
-#need to limit integer choices - range from 1-3
-
 shipping_dict = {
     "Ground Shipping": ["ground_shipping"],
     "Ground Shipping Premium": ["ground_shipping_premium"],
@@ -16,6 +11,20 @@ choice_1 = shipping_dict["Ground Shipping"]
 choice_2 = shipping_dict["Ground Shipping Premium"]
 choice_3 = shipping_dict["Drone Shipping"]
 
+print("To calculate the cost of your shipping, enter your item information below:")
+
+weight = int(input("Enter the weight of your product:"))
+
+while weight < 1:
+  print("You must enter a viable weight.")
+  weight = int(input("Enter the weight of your product:"))
+
+choice = int(input("Choose your shipping option - 1 for Ground, 2 for Ground Premium, 3 for Drone:"))
+
+while choice < 1 or choice > 3:
+  print("You must choose a value between 1 and 3")
+  choice = int(input("Choose your shipping option - 1 for Ground, 2 for Ground Premium, 3 for Drone:"))
+  
 
 if choice == 1:
   choice_1
@@ -44,3 +53,4 @@ elif weight > 6 and weight <= 10 and choice_3:
   print("Ground Price per Pound = $12.00, no flat charge. Total cost: " + str(weight * 12.0))
 elif weight > 10 and choice_3:
   print("Ground Price per Pound = $14.25, no flat charge. Total cost: " + str(weight * 14.25))
+
